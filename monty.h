@@ -58,4 +58,11 @@ void init_data(monty_data *data);
 
 /* string functions */
 char *_strdup(char *str);
+
+/* doubly list functions */
+stack_t *add_dnodeint(stack_t **head, const int n);
+stack_t *add_dnodeint_end(stack_t **head, const int n);
+void free_dlistint(stack_t *head);
+
+
 #endif /* MONTY_H */
