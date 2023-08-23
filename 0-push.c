@@ -16,7 +16,7 @@ void push_it(stack_t **stack, unsigned int line_number)
 		dprintf(2, "usage: push integer");
 		exit(EXIT_FAILURE);
 	}
-	
+
 	for (idx = 0; varb.argmt[idx] != '\0'; idx++)
 	{
 		if (!isdigit(varb.argmt[idx] && varb.argmt[idx] != '-'))
