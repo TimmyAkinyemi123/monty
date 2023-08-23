@@ -55,13 +55,17 @@ int is_opcode(monty_data *data, stack_t **stack)
 {
 	int i = 0;
 	instruction_t instructions[] = {
-		{"push" monty_push},
-		{NULL, NULL}};
+		{"push", push_it},
+		{NULL, NULL}
+	};
 
 	while (instructions[i].opcode)
 	{
 		if (strcmp(data->args[0], instructions[i].opcode))
-			return(instructions[i].f(stack, data->line_num));
+		{
+			instructions[i].f(stack, data->line_num);
+			return (OPCODE);
+		}
 		i++;
 	}
 	return (NOT_OPCODE);

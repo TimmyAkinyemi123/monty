@@ -34,11 +34,11 @@ int monty_code(FILE *fd, monty_data *data)
 				fprintf(stderr, "L%u: unknown instruction %s\n",
 						line_number, data->args[0]);
 				exit_status = EXIT_FAILURE;
-				free_tokens(&data);
+				free_tokens(data);
 				free(line);
 				break;
 			}
-			free_tokens(&data);
+			free_tokens(data);
 		}
 	}
 	free(line);

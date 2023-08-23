@@ -18,6 +18,7 @@ void free_varb()
  */
 void init_varb(FILE *fd)
 {
+	(void)fd;
 	varb.argmt = NULL;
 	varb.topback = 1;
 }
