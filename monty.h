@@ -69,8 +69,8 @@ stack_t *add_dnodeint_end(stack_t **head, const int n);
 void free_dlistint(stack_t *head);
 
 /* opcode functions */
-void push_it(stack_t **stack, unsigned int line_number);
-void pop_it(stack_t **stack, unsigned int line_number);
+void monty_push(stack_t **stack, unsigned int line_number);
+void monty_pop(stack_t **stack, unsigned int line_number);
 
 /* free and set global variables */
 void free_varb();
