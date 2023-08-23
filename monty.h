@@ -44,12 +44,14 @@ typedef struct instruction_s
  * @args: tokenized strings
  * @line: instruction entered by user
  * @line_num: line number
+ * @topback: sets stack(top) or sets queue(back)
  */
 typedef struct md
 {
 	char *line;
 	char **args;
 	unsigned int line_num;
+	int topback;
 } monty_data;
 
 /* Primary Interpreter functions */
@@ -72,8 +74,5 @@ void free_dlistint(stack_t *head);
 void monty_push(stack_t **stack, unsigned int line_number);
 void monty_pop(stack_t **stack, unsigned int line_number);
 
-/* free and set global variables */
-void free_varb();
-void init_varb(FILE *fd);
 
 #endif /* MONTY_H */
