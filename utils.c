@@ -11,11 +11,9 @@ void init_data(monty_data *data)
 }
 
 /**
- * stack_init - initialize stack
- * @stack: double pointer to stack
- * Return: EXIT_SUCCESS
+ * stack_init - initialize the stack pointer
+ * @stack: pointer to pointer
  */
-
 int stack_init(stack_t **stack)
 {
 	stack_t *temp = malloc(sizeof(stack_t));
@@ -32,40 +30,23 @@ int stack_init(stack_t **stack)
 
 	return (EXIT_SUCCESS);
 }
-/**
- * check_stack - checks if it is a stack or queue
- * @stack: pointer to the stack
- * Return: 0 or 1
- */
-int check_stack(stack_t *stack)
-{
-	if(stack->n == 0)
-		return (0);
-	else if (stack->n == 1)
-		return (1);
-	return (2);
-}
+
 /**
  * is_opcode - checks if string is an opcode
  * @data: monty program data
- * @stack: double pointer ot stack
  * Return: function or NOT_OPCODE
  */
-int is_opcode(monty_data *data, stack_t **stack)
+int is_opcode(monty_data *data)
 {
 	int i = 0;
 	instruction_t instructions[] = {
-		{"push", push_it},
-		{NULL, NULL}
-	};
+		{"push" monty_push},
+		{NULL, NULL}};
 
 	while (instructions[i].opcode)
 	{
 		if (strcmp(data->args[0], instructions[i].opcode))
-		{
-			instructions[i].f(stack, data->line_num);
-			return (OPCODE);
-		}
+			return(instructions[i].f(&stack, data->line_num));
 		i++;
 	}
 	return (NOT_OPCODE);
