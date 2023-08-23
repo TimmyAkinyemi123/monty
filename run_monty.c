@@ -10,6 +10,10 @@ int monty_code(FILE *fd, monty_data *data)
 	char *line = NULL;
 	size_t len = 0, exit_status = EXIT_SUCCESS;
 	unsigned int line_number = 0;
+	stack_t *stack = NULL;
+
+	if (stack_init(&stack) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
 
 	while (getline(&line, &len, fd) != -1)
 	{
@@ -25,7 +29,7 @@ int monty_code(FILE *fd, monty_data *data)
 
 		if (data->args[0])
 		{
-			if (is_opcode(data) == NOT_OPCODE)
+			if (is_opcode(data, &stack) == NOT_OPCODE)
 			{
 				fprintf(stderr, "L%u: unknown instruction %s\n",
 						line_number, data->args[0]);
@@ -36,7 +40,7 @@ int monty_code(FILE *fd, monty_data *data)
 			}
 			free_tokens(&data);
 		}
-		free(line);
-		return (exit_status);
 	}
+	free(line);
+	return (exit_status);
 }

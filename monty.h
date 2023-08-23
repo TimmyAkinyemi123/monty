@@ -53,8 +53,9 @@ typedef struct md
 /* Primary Interpreter functions */
 int monty_code(FILE *fd, monty_data *data);
 void tokenize_input(monty_data *data);
-int is_opcode(monty_data *data);
+int is_opcode(monty_data *data, stack_t **stack);
 void init_data(monty_data *data);
+int stack_init(stack_t **stack);
 
 /* string functions */
 char *_strdup(char *str);
