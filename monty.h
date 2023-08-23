@@ -68,8 +68,10 @@ void free_dlistint(stack_t *head);
 
 /* opcode functions */
 void push_it(stack_t **stack, unsigned int line_number);
+void pop_it(stack_t **stack, unsigned int line_number);
 
-
-
+/* free and set global variables */
+void free_varb();
+void init_varb(FILE *fd);
 
 #endif /* MONTY_H */
