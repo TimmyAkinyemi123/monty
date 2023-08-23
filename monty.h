@@ -6,7 +6,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <ctype.h>
 #include "monty_macros.h"
+
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -63,6 +65,11 @@ char *_strdup(char *str);
 stack_t *add_dnodeint(stack_t **head, const int n);
 stack_t *add_dnodeint_end(stack_t **head, const int n);
 void free_dlistint(stack_t *head);
+
+/* opcode functions */
+void push_it(stack_t **stack, unsigned int line_number);
+
+
 
 
 #endif /* MONTY_H */

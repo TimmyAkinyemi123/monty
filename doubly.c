@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * add_dnodeint - a function that adds a new node at the beginning

@@ -7,17 +7,15 @@
 
 /**
  * struct global_variable - alias for variables
- * @temp: starting point in a doubly linked list
- * @fileptr: points to file
  * @argv1: second index of the argument in a line
- *
+ * @topback: set stack(top) or queue(back)
  */
 typedef struct global_variable
 {
-	stack_t *temp;
-	FILE *fileptr;
-	char *argv1;
-	char *buff;
+	char *argmt;
+	int topback;
 } my_globalvar;
+
+extern my_globalvar varb; /* a defined global variable */
 
 #endif
