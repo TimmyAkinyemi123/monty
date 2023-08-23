@@ -10,7 +10,7 @@ void push_it(stack_t **stack, unsigned int line_number)
 {
 	int element, idx;
 
-	if (!varb.argmt)
+	if (varb.argmt != NULL)
 	{
 		dprintf(2, "L%u: ", line_number); /* L<line_number>: */
 		dprintf(2, "usage: push integer");
