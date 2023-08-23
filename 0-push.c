@@ -3,8 +3,8 @@
 /**
  * push_it - insert new element in a C stack
  * @stack: double pointer to a linked list
- * @line_number - value
- *
+ * @line_number: value
+ * Return: no value
  */
 void push_it(stack_t **stack, unsigned int line_number)
 {
@@ -32,4 +32,25 @@ void push_it(stack_t **stack, unsigned int line_number)
 		add_dnodeint(stack, element);
 	else
 		add_dnodeint_end(stack, element);
+}
+
+/**
+ * pop_it - remove top element from a C stack
+ * @stack: double pointer to linked list
+ * @line_number: value
+ * Return: no value
+ */
+void pop_it(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tempnode;
+
+	if (stack == NULL || *stack == NULL)
+	{
+		dprintf(2, "L%u: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	tempnode = *stack;
+	*stack = (*stack)->next;
+	free(tempnode);
 }
