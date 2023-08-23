@@ -36,7 +36,7 @@ int stack_init(stack_t **stack)
  * @data: monty program data
  * Return: function or NOT_OPCODE
  */
-int is_opcode(monty_data *data)
+int is_opcode(monty_data *data, stack_t **stack)
 {
 	int i = 0;
 	instruction_t instructions[] = {
@@ -48,7 +48,7 @@ int is_opcode(monty_data *data)
 	{
 		if (strcmp(data->args[0], instructions[i].opcode))
 		{
-			instructions[i].f(&stack, data->line_num);
+			instructions[i].f(stack, data->line_num);
 			return (OPCODE);
 		}
 		i++;
