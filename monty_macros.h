@@ -6,17 +6,16 @@
 #define DELIM " \n"
 
 /**
- * @temp: starting point in a doubly linked list
- * @fileptr: points to file
- *
- *
+ * struct global_variable - alias for variables
+ * @argmt: second index of the argument in a line
+ * @topback: set stack(top) or queue(back)
  */
 typedef struct global_variable
 {
-	stack_t *temp;
-	FILE *fileptr;
 	char *argmt;
-	char *buff;
+	int topback;
 } my_globalvar;
+
+extern my_globalvar varb; /* a defined global variable */
 
 #endif
