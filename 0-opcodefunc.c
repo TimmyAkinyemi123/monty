@@ -1,25 +1,27 @@
 #include "monty.h"
 
+extern monty_data varb; /* defined global variable */
+
 /**
- * push_it - insert new element in a C stack
+ * monty_push - insert new element in a C stack
  * @stack: double pointer to a linked list
  * @line_number: value
  * Return: no value
  */
-void push_it(stack_t **stack, unsigned int line_number)
+void monty_push(stack_t **stack, unsigned int line_number)
 {
 	int element, idx;
 
-	if (varb.argmt != NULL)
+	if (varb.line != NULL)
 	{
 		dprintf(2, "L%u: ", line_number); /* L<line_number>: */
 		dprintf(2, "usage: push integer");
 		exit(EXIT_FAILURE);
 	}
 
-	for (idx = 0; varb.argmt[idx] != '\0'; idx++)
+	for (idx = 0; varb.line[idx] != '\0'; idx++)
 	{
-		if (!isdigit(varb.argmt[idx] && varb.argmt[idx] != '-'))
+		if (!isdigit(varb.line[idx] && varb.line[idx] != '-'))
 		{
 			dprintf(2, "L%u: ", line_number);
 			dprintf(2, "usage: push integer\n");
@@ -27,7 +29,7 @@ void push_it(stack_t **stack, unsigned int line_number)
 		}
 	}
 
-	element = atoi(varb.argmt);
+	element = atoi(varb.line);
 	if (varb.topback == 1)
 		add_dnodeint(stack, element);
 	else
@@ -35,12 +37,12 @@ void push_it(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pop_it - remove top element from a C stack
+ * monty_pop - remove top element from a C stack
  * @stack: double pointer to linked list
  * @line_number: value
  * Return: no value
  */
-void pop_it(stack_t **stack, unsigned int line_number)
+void monty_pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tempnode;
 
