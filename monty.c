@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 	}
 
 	init_data(data_ptr);
-	exit_status = monty_code(fd, &data);
+	exit_status = monty_code(fd, data_ptr);
 	fclose(fd);
 
 	return (exit_status);
