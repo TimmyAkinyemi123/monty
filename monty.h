@@ -61,7 +61,7 @@ void tokenize_input(monty_data *data);
 int is_opcode(stack_t **stack, monty_data *data);
 void init_data(monty_data *data);
 int stack_init(stack_t **stack);
-void free_tokens(void);
+void free_tokens(monty_data *data);
 
 /* string functions */
 char *_strdup(char *str);
