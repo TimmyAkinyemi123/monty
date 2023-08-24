@@ -15,7 +15,10 @@ void monty_push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	value = atoi(data_ptr->args[1]);
-	add_dnodeint(stack, value);
+	if (data_ptr->topback == 1)
+		add_dnodeint(stack, value);
+	else
+		add_dnodeint_end(stack, value);
 }
 
 /**

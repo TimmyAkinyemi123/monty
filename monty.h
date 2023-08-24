@@ -61,7 +61,7 @@ void tokenize_input(monty_data *data);
 int is_opcode(stack_t **stack, monty_data *data);
 void init_data(monty_data *data);
 int stack_init(stack_t **stack);
-void free_tokens();
+void free_tokens(void);
 
 /* string functions */
 char *_strdup(char *str);
@@ -80,4 +80,10 @@ void monty_add(stack_t **stack, unsigned int line_number);
 void monty_nop(stack_t **stack, unsigned int line_number);
 void monty_swap(stack_t **stack, unsigned int line_number);
 void monty_pint(stack_t **stack, unsigned int line_number);
+
+/* is it a queue or stack */
+void monty_stack(stack_t **stack, unsigned int line_number);
+void monty_queue(stack_t **stack, unsigned int line_number);
+
+
 #endif /* MONTY_H */

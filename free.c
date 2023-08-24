@@ -17,3 +17,30 @@ void free_tokens(monty_data *data)
 		data->args = NULL;
 	}
 }
+
+/**
+ * monty_stack - sets to stack
+ * @stack: double pointer to stack
+ * @line_number: line number
+ */
+void monty_stack(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+
+	data_ptr->topback = 1;
+}
+
+/**
+ * monty_queue - sets to queue
+ * @stack: double pointer to stack
+ * @line_number: line number
+ *
+ */
+void monty_queue(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+
+	data_ptr->topback = 0;
+}
