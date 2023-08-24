@@ -7,14 +7,15 @@
 void monty_push(stack_t **stack, unsigned int line_number)
 {
 	int value;
+	stack_t *new_node;
 
-	if (!stack || !data_ptr->args[1] || !is_number(data_ptr->args[1]))
+	if (!data_ptr->args[1] || !is_number(data_ptr->args[1]))
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	value = atoi(data_ptr->args[1]);
-	add_dnodeint(stack, value);
+	new_node = add_dnodeint(stack, value);
 }
 
 /**
