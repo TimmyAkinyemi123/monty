@@ -21,7 +21,7 @@ void monty_swap(stack_t **stack, unsigned int line_number)
 		second->next->prev = first;
 	second->prev = NULL;
 	second->next = first;
-	
+
 	first->prev = second;
 	*stack = second;
 }
