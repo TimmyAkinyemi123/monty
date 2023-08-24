@@ -20,8 +20,8 @@ int monty_code(FILE *fd, monty_data *data)
 		line_number++;
 		data->line_num = line_number;
 
-		if (line[strlen(line) -1] == '\n')
-			line[strlen(line) -1] = '\0';
+		if (line[strlen(line) - 1] == '\n')
+			line[strlen(line) - 1] = '\0';
 		if (line == NULL)
 			continue;
 		data->line = line;

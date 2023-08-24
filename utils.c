@@ -13,7 +13,8 @@ void init_data(monty_data *data)
 
 /**
  * stack_init - initialize the stack pointer
- * @stack: pointer to pointer
+ * @stack: double pointer to beginning of stack
+ * Return: EXIT_SUCCESS or EXIT_FAILURE
  */
 int stack_init(stack_t **stack)
 {
@@ -34,6 +35,7 @@ int stack_init(stack_t **stack)
 
 /**
  * is_opcode - checks if string is an opcode
+ * @stack: double pointer to stack
  * @data: monty program data
  * Return: function or NOT_OPCODE
  */

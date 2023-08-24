@@ -11,6 +11,7 @@ int main(int argc, char **argv)
 	FILE *fd = NULL;
 	int exit_status = EXIT_SUCCESS;
 	monty_data data;
+
 	data_ptr = &data;
 
 	if (argc != 2)

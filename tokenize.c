@@ -20,10 +20,10 @@ void tokenize_input(monty_data *data)
 	{
 		tokens[count] = token;
 		count++;
-		if(count >= bufsize)
+		if (count >= bufsize)
 		{
 			bufsize += MAX_TOKENS;
-			tokens = realloc(tokens, bufsize *sizeof(char *));
+			tokens = realloc(tokens, bufsize * sizeof(char *));
 			if (!tokens)
 			{
 				perror("Allocation Error");
