@@ -44,7 +44,7 @@ void monty_pall(stack_t **stack, unsigned int line_number)
  */
 void monty_pop(stack_t **stack, unsigned int line_number)
 {
-	stact_t *tempnode;
+	stack_t *tempnode;
 
 	if (*stack == NULL || stack == NULL)
 	{
@@ -79,9 +79,9 @@ void monty_add(stack_t **stack, unsigned int line_number)
 	node2 = (*stack)->next;
 
 	node2->n += node1->n;
-	*stack = second;
+	*stack = node2;
 
-	second->prev = NULL;
+	node2->prev = NULL;
 	free(node1);
 }
 
