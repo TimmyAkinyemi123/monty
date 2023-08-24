@@ -13,10 +13,7 @@ int monty_code(FILE *fd, monty_data *data)
 	stack_t *stack = NULL;
 
 	if (stack_init(&stack) == EXIT_FAILURE)
-	{
-		fprintf(stderr, "Error: Failed to initialize stack\n");
 		return (EXIT_FAILURE);
-	}
 
 	while (getline(&line, &len, fd) != -1)
 	{
@@ -41,11 +38,10 @@ int monty_code(FILE *fd, monty_data *data)
 				free(line);
 				break;
 			}
-			free_tokens();
 		}
+		free_tokens(data);
 	}
 	free(line);
-	free_tokens(data);
 	free_dlistint(stack);
 	return (exit_status);
 }
