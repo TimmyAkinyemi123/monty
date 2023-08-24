@@ -22,10 +22,10 @@ int monty_code(FILE *fd, monty_data *data)
 
 		if (line[strlen(line) - 1] == '\n')
 			line[strlen(line) - 1] = '\0';
-		if (line == NULL)
+		if (line[0] == '\0')
 			continue;
 		data->line = _strdup(line);
-		tokenize_input(data_ptr);
+		tokenize_input(data);
 
 		if (data->args[0])
 		{
@@ -34,7 +34,7 @@ int monty_code(FILE *fd, monty_data *data)
 				fprintf(stderr, "L%u: unknown instruction %s\n",
 						line_number, data->args[0]);
 				exit_status = EXIT_FAILURE;
-				free_tokens();
+				free_tokens(data);
 				free(data->line);
 				break;
 			}
