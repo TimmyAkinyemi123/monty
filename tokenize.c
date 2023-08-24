@@ -30,7 +30,7 @@ void tokenize_input(monty_data *data)
 				exit(EXIT_FAILURE);
 			}
 		}
-		token = _strdup(strtok(data->line, DELIM));
+		token = _strdup(strtok(NULL, DELIM));
 	}
 	tokens[count] = NULL;
 	data->args = tokens;

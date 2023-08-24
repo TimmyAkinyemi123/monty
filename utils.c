@@ -50,7 +50,7 @@ int is_opcode(stack_t **stack, monty_data *data)
 
 	while (instructions[i].opcode)
 	{
-		if (strcmp(data->args[0], instructions[i].opcode))
+		if (strcmp(data->args[0], instructions[i].opcode) == 0)
 		{
 			instructions[i].f(stack, data->line_num);
 			return (OPCODE);

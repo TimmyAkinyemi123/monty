@@ -25,7 +25,7 @@ int monty_code(FILE *fd, monty_data *data)
 		if (line == NULL)
 			continue;
 		data->line = line;
-		tokenize_input(data);
+		tokenize_input(data_ptr);
 
 		if (data->args[0])
 		{

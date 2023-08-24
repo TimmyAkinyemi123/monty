@@ -14,5 +14,6 @@ void free_tokens(monty_data *data)
 		for (i = 0; args[i]; i++)
 			free(args[i]);
 		free(args);
+		data->args = NULL;
 	}
 }
