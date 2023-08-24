@@ -24,7 +24,7 @@ int monty_code(FILE *fd, monty_data *data)
 			line[strlen(line) - 1] = '\0';
 		if (line == NULL)
 			continue;
-		data->line = line;
+		data->line = _strdup(line);
 		tokenize_input(data_ptr);
 
 		if (data->args[0])
@@ -35,13 +35,13 @@ int monty_code(FILE *fd, monty_data *data)
 						line_number, data->args[0]);
 				exit_status = EXIT_FAILURE;
 				free_tokens();
-				free(line);
+				free(data->line);
 				break;
 			}
 		}
 		free_tokens(data);
 	}
-	free(line);
+	free(data->line);
 	free_dlistint(stack);
 	return (exit_status);
 }
