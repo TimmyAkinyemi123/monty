@@ -24,24 +24,22 @@ int monty_code(FILE *fd, monty_data *data)
 			line[strlen(line) - 1] = '\0';
 		if (line == NULL)
 			continue;
-		data->line = _strdup(line);
+		data->line = line;
 		tokenize_input(data_ptr);
 
-		if (data->args[0])
+		if (is_opcode(&stack, data) == NOT_OPCODE)
 		{
-			if (is_opcode(&stack, data) == NOT_OPCODE)
-			{
-				fprintf(stderr, "L%u: unknown instruction %s\n",
-						line_number, data->args[0]);
-				exit_status = EXIT_FAILURE;
-				free_tokens();
-				free(data->line);
-				break;
-			}
+			fprintf(stderr, "L%u: unknown instruction %s\n",
+					line_number, data->args[0]);
+			exit_status = EXIT_FAILURE;
+			free_tokens();
+			free(line);
+			free_dlistint(stack);
+			break;
 		}
 		free_tokens(data);
 	}
-	free(data->line);
+	free(line);
 	free_dlistint(stack);
 	return (exit_status);
 }

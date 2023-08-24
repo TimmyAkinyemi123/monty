@@ -76,5 +76,8 @@ void free_dlistint(stack_t *head);
 void monty_push(stack_t **stack, unsigned int line_number);
 void monty_pop(stack_t **stack, unsigned int line_number);
 void monty_pall(stack_t **stack, unsigned int line_number);
+void monty_add(stack_t **stack, unsigned int line_number);
+void monty_nop(stack_t **stack, unsigned int line_number);
+
 
 #endif /* MONTY_H */
