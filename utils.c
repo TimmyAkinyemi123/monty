@@ -41,7 +41,6 @@ int is_opcode(monty_data *data, stack_t **stack)
 {
 	int i = 0;
 	instruction_t instructions[] = {
-		{"push", monty_push},
 		{NULL, NULL}
 	};
 
