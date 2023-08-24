@@ -54,6 +54,7 @@ typedef struct md
 	unsigned int line_num;
 	int topback;
 } monty_data;
+
 monty_data *data_ptr;
 
 /* Primary Interpreter functions */
