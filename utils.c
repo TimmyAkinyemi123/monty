@@ -1,4 +1,5 @@
 #include "monty.h"
+
 /**
  * init_data - intializes monty program data
  * @data: monty program data
@@ -45,6 +46,9 @@ int is_opcode(stack_t **stack, monty_data *data)
 	instruction_t instructions[] = {
 		{"push", monty_push},
 		{"pall", monty_pall},
+		{"pop", monty_pop},
+		{"add", monty_add},
+		{"nop", monty_nop},
 		{NULL, NULL}
 	};
 

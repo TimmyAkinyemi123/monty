@@ -1,4 +1,5 @@
 #include "monty.h"
+
 /**
  * monty_push - pushes an element to the stack.
  * @stack: double pointer to the stack
@@ -34,4 +35,63 @@ void monty_pall(stack_t **stack, unsigned int line_number)
 		printf("%d\n", current->n);
 		current = current->next;
 	}
+}
+
+/**
+ * monty_pop - removes top elements from a stack
+ * @stack: double pointer to the stack
+ * @line_number: line number
+ */
+void monty_pop(stack_t **stack, unsigned int line_number)
+{
+	stact_t *tempnode;
+
+	if (*stack == NULL || stack == NULL)
+	{
+		dprintf(2, "L%u: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	tempnode = *stack;
+	*stack = (*stack)->next;
+	if (*stack)
+		(*stack)->prev = NULL;
+
+	free(tempnode);
+}
+
+/**
+ * monty_add - adds two element at the top of the stack
+ * @stack: double pointer to stack
+ * @line_number: line number
+ */
+void monty_add(stack_t **stack, unsigned int line_number)
+{
+	stack_t *node1, *node2;
+
+	if (*stack == NULL || stack == NULL)
+	{
+		dprintf(2, "L%u: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	node1 = *stack;
+	node2 = (*stack)->next;
+
+	node2->n += node1->n;
+	*stack = second;
+
+	second->prev = NULL;
+	free(node1);
+}
+
+/**
+ * monty_nop - do nothing in the stack
+ * @stack: double pointer to stack
+ * @line_number: line number
+ */
+void monty_nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
 }
