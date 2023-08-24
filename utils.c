@@ -37,10 +37,12 @@ int stack_init(stack_t **stack)
  * @data: monty program data
  * Return: function or NOT_OPCODE
  */
-int is_opcode(monty_data *data, stack_t **stack)
+int is_opcode(stack_t **stack, monty_data *data)
 {
 	int i = 0;
 	instruction_t instructions[] = {
+		{"push", monty_push},
+		{"pall", monty_pall},
 		{NULL, NULL}
 	};
 

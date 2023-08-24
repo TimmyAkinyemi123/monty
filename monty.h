@@ -53,17 +53,19 @@ typedef struct md
 	unsigned int line_num;
 	int topback;
 } monty_data;
+monty_data *data_ptr;
 
 /* Primary Interpreter functions */
 int monty_code(FILE *fd, monty_data *data);
 void tokenize_input(monty_data *data);
-int is_opcode(monty_data *data, stack_t **stack);
+int is_opcode(stack_t **stack, monty_data *data);
 void init_data(monty_data *data);
 int stack_init(stack_t **stack);
-void free_tokens(monty_data *data);
+void free_tokens();
 
 /* string functions */
 char *_strdup(char *str);
+int is_number(char *str);
 
 /* doubly list functions */
 stack_t *add_dnodeint(stack_t **head, const int n);
@@ -73,6 +75,6 @@ void free_dlistint(stack_t *head);
 /* opcode functions */
 void monty_push(stack_t **stack, unsigned int line_number);
 void monty_pop(stack_t **stack, unsigned int line_number);
-
+void monty_pall(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */

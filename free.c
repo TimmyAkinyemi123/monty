@@ -2,7 +2,7 @@
 
 /**
  * free_tokens - Frees memory allocated for tokenized arguments.
- * @data: monty program data containing tokenized arguments.
+ * data: program data
  */
 void free_tokens(monty_data *data)
 {

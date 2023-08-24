@@ -2,7 +2,7 @@
 #include <string.h>
 /**
  * tokenize_input - splits line into strings
- * @data: monty program data
+ * @data: program data
  */
 void tokenize_input(monty_data *data)
 {

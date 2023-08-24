@@ -29,16 +29,16 @@ int monty_code(FILE *fd, monty_data *data)
 
 		if (data->args[0])
 		{
-			if (is_opcode(data, &stack) == NOT_OPCODE)
+			if (is_opcode(&stack, data) == NOT_OPCODE)
 			{
 				fprintf(stderr, "L%u: unknown instruction %s\n",
 						line_number, data->args[0]);
 				exit_status = EXIT_FAILURE;
-				free_tokens(data);
+				free_tokens();
 				free(line);
 				break;
 			}
-			free_tokens(data);
+			free_tokens();
 		}
 	}
 	free(line);

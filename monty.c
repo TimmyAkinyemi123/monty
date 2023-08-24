@@ -1,4 +1,5 @@
 #include "monty.h"
+
 /**
  * main - run monty code
  * @argc: argument count
@@ -9,11 +10,12 @@ int main(int argc, char **argv)
 {
 	FILE *fd = NULL;
 	int exit_status = EXIT_SUCCESS;
-	monty_data data = {NULL};
+	monty_data data;
+	data_ptr = &data;
 
 	if (argc != 2)
 	{
-		fprintf(stderr, "USAGE: monty file");
+		fprintf(stderr, "USAGE: monty file\n");
 		return (EXIT_FAILURE);
 	}
 
@@ -24,7 +26,7 @@ int main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 
-	init_data(&data);
+	init_data(data_ptr);
 	exit_status = monty_code(fd, &data);
 	fclose(fd);
 
