@@ -9,7 +9,7 @@ void monty_push(stack_t **stack, unsigned int line_number)
 {
 	int value;
 
-	if (!stack || data_ptr->args[1] || !is_number(data_ptr->args[1]))
+	if (!stack || !(data_ptr->args[1]) || !is_number(data_ptr->args[1]))
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
@@ -31,12 +31,18 @@ void monty_pall(stack_t **stack, unsigned int line_number)
 	stack_t *current;
 
 	(void)line_number;
-	current = *stack;
+	if (data_ptr->topback == 1)
+		current = *stack;
+	else if (data_ptr->topback == -1)
+		current = (*stack)->next;
 
 	while (current)
 	{
 		printf("%d\n", current->n);
-		current = current->next;
+		if (data_ptr->topback == 1)
+			current = current->next;
+		else if (data_ptr->topback == -1)
+			current = current->prev;
 	}
 }
 
