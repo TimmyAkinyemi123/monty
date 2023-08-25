@@ -36,7 +36,7 @@ void monty_pall(stack_t **stack, unsigned int line_number)
 	else if (data_ptr->topback == -1)
 		current = (*stack)->next;
 
-	while (current && current->n != 0)
+	while (current)
 	{
 		printf("%d\n", current->n);
 		if (data_ptr->topback == 1)
