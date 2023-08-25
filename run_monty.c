@@ -11,6 +11,7 @@ int monty_code(FILE *fd, monty_data *data)
 	size_t len = 0, exit_status = EXIT_SUCCESS;
 	unsigned int line_number = 0;
 	stack_t *stack = NULL;
+	int i = 0;
 
 	if (stack_init(&stack) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
@@ -25,15 +26,21 @@ int monty_code(FILE *fd, monty_data *data)
 		if (line[0] == '\0')
 			continue;
 		data->line = _strdup(line);
-		tokenize_input(data);
-		if (is_opcode(&stack, data) == NOT_OPCODE)
+		build_command_list(data);
+
+		for (i = 0; data->list[i]; ++i)
 		{
-			fprintf(stderr, "L%u: unknown instruction %s\n",
-					line_number, data->args[0]);
-			exit_status = EXIT_FAILURE;
-			free_tokens(data);
-			free(data->line);
-			break;
+			data->line = data->list[i];
+			tokenize_input(data);
+			if (is_opcode(&stack, data) == NOT_OPCODE)
+			{
+				fprintf(stderr, "L%u: unknown instruction %s\n",
+						line_number, data->args[0]);
+				exit_status = EXIT_FAILURE;
+				free_tokens(data);
+				free(data->line);
+				break;
+			}
 		}
 		free_tokens(data);
 	}

@@ -51,6 +51,7 @@ typedef struct md
 {
 	char *line;
 	char **args;
+	char **list;
 	unsigned int line_num;
 	int topback;
 } monty_data;
@@ -59,6 +60,7 @@ monty_data *data_ptr;
 
 /* Primary Interpreter functions */
 int monty_code(FILE *fd, monty_data *data);
+void build_command_list(monty_data *data);
 void tokenize_input(monty_data *data);
 int is_opcode(stack_t **stack, monty_data *data);
 void init_data(monty_data *data);
