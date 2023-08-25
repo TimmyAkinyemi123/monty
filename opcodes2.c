@@ -16,13 +16,14 @@ void monty_swap(stack_t **stack, unsigned int line_number)
 	}
 	first = *stack;
 	second = (*stack)->next;
-	first->next = second->next;
+
 	if (second->next)
 		second->next->prev = first;
-	second->prev = NULL;
-	second->next = first;
+	first->next = second->next;
 
+	second->next = first;
 	first->prev = second;
+
 	*stack = second;
 }
 
