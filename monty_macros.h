@@ -4,7 +4,7 @@
 #define NOT_OPCODE 1
 #define OPCODE 0
 #define MAX_TOKENS 1024
-#define DELIM " \n"
+#define DELIM " \t\n"
 
 
 #endif

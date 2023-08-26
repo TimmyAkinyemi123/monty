@@ -7,9 +7,9 @@
 #include <string.h>
 #include <unistd.h>
 #include <ctype.h>
+#include <sys/types.h>
 #include <fcntl.h>
 #include "monty_macros.h"
-
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -84,6 +84,10 @@ void monty_add(stack_t **stack, unsigned int line_number);
 void monty_nop(stack_t **stack, unsigned int line_number);
 void monty_swap(stack_t **stack, unsigned int line_number);
 void monty_pint(stack_t **stack, unsigned int line_number);
+void monty_sub(stack_t **stack, unsigned int line_number);
+void monty_mul(stack_t **stack, unsigned int line_number);
+void monty_div(stack_t **stack, unsigned int line_number);
+void monty_mod(stack_t **stack, unsigned int line_number);
 
 /* is it a queue or stack */
 void monty_stack(stack_t **stack, unsigned int line_number);
