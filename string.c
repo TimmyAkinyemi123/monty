@@ -41,3 +41,25 @@ int is_number(char *str)
 	}
 	return (1);
 }
+
+/**
+ * _strtrim - removes beginning whitespace
+ * characters
+ * @str: string to modify
+ */
+void _strtrim(char *str)
+{
+	int start = 0, i = 0;
+	int end = strlen(str) - 1;
+
+	/* find start and end index of nonspace character */
+	while (str[start] == ' ')
+		start++;
+	while (end > start && str[end] == ' ')
+		end--;
+	/*shifting characters to the left */
+	for (i = 0; i <= end - start; i++)
+		str[i] = str[start + i];
+	str[i] = '\0';
+}
+

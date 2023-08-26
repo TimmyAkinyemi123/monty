@@ -33,6 +33,7 @@ void monty_pall(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 	if (data_ptr->topback == 1)
 		current = *stack;
+
 	else if (data_ptr->topback == -1)
 		current = (*stack)->next;
 

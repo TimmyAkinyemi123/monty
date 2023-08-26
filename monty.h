@@ -66,10 +66,12 @@ int is_opcode(stack_t **stack, monty_data *data);
 void init_data(monty_data *data);
 int stack_init(stack_t **stack);
 void free_tokens(monty_data *data);
+int check_comment(char *line);
 
 /* string functions */
 char *_strdup(char *str);
 int is_number(char *str);
+void _strtrim(char *str);
 
 /* doubly list functions */
 stack_t *add_dnodeint(stack_t **head, const int n);
@@ -95,5 +97,7 @@ void monty_pstr(stack_t **stack, unsigned int line_number);
 void monty_stack(stack_t **stack, unsigned int line_number);
 void monty_queue(stack_t **stack, unsigned int line_number);
 
+/* error message*/
+void unknown_error(unsigned int line_number, char *instruction);
 
 #endif /* MONTY_H */

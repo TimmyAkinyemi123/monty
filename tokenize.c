@@ -12,7 +12,7 @@ void tokenize_input(monty_data *data)
 
 	if (!tokens)
 	{
-		perror("Allocation Error");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	token = _strdup(strtok(data->line, DELIM));
@@ -26,7 +26,7 @@ void tokenize_input(monty_data *data)
 			tokens = realloc(tokens, bufsize * sizeof(char *));
 			if (!tokens)
 			{
-				perror("Allocation Error");
+				fprintf(stderr, "Error: malloc failed\n");
 				exit(EXIT_FAILURE);
 			}
 		}
@@ -50,7 +50,7 @@ void build_command_list(monty_data *data)
 	commands = malloc(MAX_TOKENS * sizeof(char *));
 	if (!commands)
 	{
-		perror("Allocation error");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	while ((command = _strdup(strtok(i ? NULL : data->line, ";"))))
@@ -58,4 +58,3 @@ void build_command_list(monty_data *data)
 	commands[i] = NULL;
 	data->list = commands;
 }
-
