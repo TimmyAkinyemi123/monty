@@ -59,3 +59,21 @@ void monty_sub(stack_t **stack, unsigned int line_number)
 	(*stack)->next->n -= (*stack)->n;
 	monty_pop(stack, line_number);
 }
+
+/**
+ * monty_mul - multiplies the second top element of the stack
+ * with the top element of the stack.
+ * @stack: double pointer to the stack
+ * @line_number: line number
+ */
+void monty_mul(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	(*stack)->next->n *= (*stack)->n;
+	monty_pop(stack, line_number);
+}

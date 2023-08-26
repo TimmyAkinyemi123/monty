@@ -52,6 +52,10 @@ int is_opcode(stack_t **stack, monty_data *data)
 		{"swap", monty_swap},
 		{"pint", monty_pint},
 		{"nop", monty_nop},
+		{"sub", monty_sub},
+		{"mul", monty_mul},
+		{"div", monty_div},
+		{"mod", monty_mod},
 		{"stack", monty_stack},
 		{"queue", monty_queue},
 		{NULL, NULL}
