@@ -19,7 +19,7 @@ void monty_div(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * monty_mod - computes the rest of the division of the second 
+ * monty_mod - computes the rest of the division of the second
  * top element of the stack by the top element of the stack.
  * @stack: double pointer to the stack
  * @line_number: line number
@@ -69,4 +69,23 @@ void monty_pchar(stack_t **stack, unsigned int line_number)
 	}
 
 	free(tempnode);
+}
+
+/**
+ * monty_pstr - prints the string starting at the top of the stack
+ * followed by a new line.
+ * @stack: double pointer to the stack
+ * @line_number: line number
+ */
+void monty_pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tempnode = *stack;
+	(void)line_number;
+
+	while (tempnode && tempnode->n > 0 && tempnode->n < 128)
+	{
+		printf("%c", tempnode->n);
+		tempnode = tempnode->next;
+	}
+	printf("\n");
 }
