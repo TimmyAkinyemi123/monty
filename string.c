@@ -28,9 +28,13 @@ char *_strdup(char *str)
  */
 int is_number(char *str)
 {
+	int i = 0;
+
 	if (!str)
 		return (0);
-	while (*str)
+	if (str[i] == '-')
+		i++;
+	while (str[i])
 	{
 		if (*str < '0' || *str > '9')
 			return (0);
