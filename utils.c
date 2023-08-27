@@ -20,17 +20,7 @@ void init_data(monty_data *data)
  */
 int stack_init(stack_t **stack)
 {
-	stack_t *temp = malloc(sizeof(stack_t));
-
-	if (!temp)
-	{
-		perror("Allocation error");
-		return (EXIT_FAILURE);
-	}
-	temp->n = 0;
-	temp->prev = NULL;
-	temp->next = NULL;
-	*stack = temp;
+	*stack = NULL;
 
 	return (EXIT_SUCCESS);
 }

@@ -7,7 +7,7 @@
  */
 void monty_push(stack_t **stack, unsigned int line_number)
 {
-	int value;
+	long value;
 
 	if (!stack || !(data_ptr->args[1]) || !is_number(data_ptr->args[1]))
 	{
@@ -15,10 +15,26 @@ void monty_push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	value = atoi(data_ptr->args[1]);
-	if (data_ptr->topback == 1)
-		add_dnodeint(stack, value);
-	else if (data_ptr->topback == -1)
-		add_dnodeint_end(stack, value);
+
+	if (*stack == NULL)
+	{
+		*stack = malloc(sizeof(stack_t));
+		if (!*stack)
+		{
+			fprintf(stderr, "Error: malloc failed\n");
+			exit(EXIT_FAILURE);
+		}
+		(*stack)->n = value;
+		(*stack)->prev = NULL;
+		(*stack)->next = NULL;
+	}
+	else
+	{
+		if (data_ptr->topback == 1)
+			add_dnodeint(stack, value);
+		else if (data_ptr->topback == -1)
+			add_dnodeint_end(stack, value);
+	}
 }
 
 /**
@@ -28,22 +44,14 @@ void monty_push(stack_t **stack, unsigned int line_number)
  */
 void monty_pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *current;
+	stack_t *current = *stack;
 
 	(void)line_number;
-	if (data_ptr->topback == 1)
-		current = *stack;
-
-	else if (data_ptr->topback == -1)
-		current = (*stack)->next;
 
 	while (current)
 	{
 		printf("%d\n", current->n);
-		if (data_ptr->topback == 1)
-			current = current->next;
-		else if (data_ptr->topback == -1)
-			current = current->prev;
+		current = current->next;
 	}
 }
 
@@ -61,12 +69,11 @@ void monty_pop(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-
 	tempnode = *stack;
 	*stack = (*stack)->next;
+
 	if (*stack)
 		(*stack)->prev = NULL;
-
 	free(tempnode);
 }
 
@@ -84,13 +91,10 @@ void monty_add(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-
 	node1 = *stack;
 	node2 = (*stack)->next;
-
 	node2->n += node1->n;
 	*stack = node2;
-
 	node2->prev = NULL;
 	free(node1);
 }
