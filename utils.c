@@ -20,7 +20,17 @@ void init_data(monty_data *data)
  */
 int stack_init(stack_t **stack)
 {
-	*stack = NULL;
+	stack_t *temp = malloc(sizeof(stack_t));
+
+	if (!temp)
+	{
+		perror("Allocation error");
+		return (EXIT_FAILURE);
+	}
+	temp->n = 0;
+	temp->prev = NULL;
+	temp->next = NULL;
+	*stack = temp;
 
 	return (EXIT_SUCCESS);
 }
@@ -48,6 +58,8 @@ int is_opcode(stack_t **stack, monty_data *data)
 		{"mod", monty_mod},
 		{"pchar", monty_pchar},
 		{"pstr", monty_pstr},
+		{"rotl", monty_rotl},
+		{"rotr", monty_rotr},
 		{"stack", monty_stack},
 		{"queue", monty_queue},
 		{NULL, NULL}

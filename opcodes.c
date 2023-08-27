@@ -28,6 +28,7 @@ void monty_push(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = NULL;
 		(*stack)->next = NULL;
 	}
+
 	else
 	{
 		if (data_ptr->topback == 1)

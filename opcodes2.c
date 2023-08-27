@@ -77,3 +77,31 @@ void monty_mul(stack_t **stack, unsigned int line_number)
 	(*stack)->next->n *= (*stack)->n;
 	monty_pop(stack, line_number);
 }
+
+/**
+ * monty_rotl - Rotates the stack to the top
+ * @stack: Double pointer to the head of the stack
+ * @line_number: Line number currently being interpreted
+ */
+void monty_rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *first = NULL, *last = NULL;
+
+	(void)line_number;
+
+	if (!stack || !*stack || !(*stack)->next)
+		return;
+
+	first = *stack;
+	last = *stack;
+
+	while (last->next)
+		last = last->next;
+
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+
+	first->prev = last;
+	last->next = first;
+	first->next = NULL;
+}

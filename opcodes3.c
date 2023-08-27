@@ -89,3 +89,29 @@ void monty_pstr(stack_t **stack, unsigned int line_number)
 	}
 	printf("\n");
 }
+
+/**
+ * monty_rotr - rotates the stack to the bottom.
+ * @stack: double pointer to the stack
+ * @line_number: line number
+ */
+void monty_rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *last, *second_last;
+
+	(void)line_number;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+		return;
+
+	last = *stack;
+	while (last->next)
+		last = last->next;
+
+	second_last = last->prev;
+	second_last->next = NULL;
+	last->prev = NULL;
+	last->next = *stack;
+	(*stack)->prev = last;
+	*stack = last;
+}
