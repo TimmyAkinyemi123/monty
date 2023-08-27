@@ -7,7 +7,7 @@
  */
 void monty_push(stack_t **stack, unsigned int line_number)
 {
-	long value;
+	int value;
 
 	if (!stack || !(data_ptr->args[1]) || !is_number(data_ptr->args[1]))
 	{
