@@ -38,7 +38,7 @@ int is_number(char *str)
 	{
 		if (*str < '0' || *str > '9')
 			return (0);
-		str++;
+		i++;
 	}
 	return (1);
 }
