@@ -36,7 +36,7 @@ int is_number(char *str)
 		i++;
 	while (str[i])
 	{
-		if (*str < '0' || *str > '9')
+		if (!isdigit(str[i]))
 			return (0);
 		i++;
 	}
