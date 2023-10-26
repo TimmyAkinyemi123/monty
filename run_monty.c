@@ -13,9 +13,6 @@ int monty_code(FILE *fd, monty_data *data)
 	stack_t *stack = NULL;
 	int i = 0;
 
-	if (stack_init(&stack) == EXIT_FAILURE)
-		return (EXIT_FAILURE);
-
 	while (getline(&line, &len, fd) != -1)
 	{
 		line_number++;

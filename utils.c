@@ -13,27 +13,6 @@ void init_data(monty_data *data)
 	data->topback = 1;
 }
 
-/**
- * stack_init - initialize the stack pointer
- * @stack: double pointer to beginning of stack
- * Return: EXIT_SUCCESS or EXIT_FAILURE
- */
-int stack_init(stack_t **stack)
-{
-	stack_t *temp = malloc(sizeof(stack_t));
-
-	if (!temp)
-	{
-		perror("Allocation error");
-		return (EXIT_FAILURE);
-	}
-	temp->n = STACK;
-	temp->prev = NULL;
-	temp->next = NULL;
-	*stack = temp;
-
-	return (EXIT_SUCCESS);
-}
 
 /**
  * is_opcode - checks if string is an opcode

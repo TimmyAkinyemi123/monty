@@ -16,26 +16,10 @@ void monty_push(stack_t **stack, unsigned int line_number)
 	}
 	value = atoi(data_ptr->args[1]);
 
-	if (*stack == NULL)
-	{
-		*stack = malloc(sizeof(stack_t));
-		if (!*stack)
-		{
-			fprintf(stderr, "Error: malloc failed\n");
-			exit(EXIT_FAILURE);
-		}
-		(*stack)->n = value;
-		(*stack)->prev = NULL;
-		(*stack)->next = NULL;
-	}
-
-	else
-	{
-		if (data_ptr->topback == 1)
-			add_dnodeint(stack, value);
-		else if (data_ptr->topback == -1)
-			add_dnodeint_end(stack, value);
-	}
+	if (data_ptr->topback == 1)
+		add_dnodeint(stack, value);
+	else if (data_ptr->topback == -1)
+		add_dnodeint_end(stack, value);
 }
 
 /**
