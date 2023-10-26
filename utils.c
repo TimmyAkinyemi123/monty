@@ -27,7 +27,7 @@ int stack_init(stack_t **stack)
 		perror("Allocation error");
 		return (EXIT_FAILURE);
 	}
-	temp->n = 0;
+	temp->n = STACK;
 	temp->prev = NULL;
 	temp->next = NULL;
 	*stack = temp;
