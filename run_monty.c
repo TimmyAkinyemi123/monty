@@ -11,7 +11,7 @@ int monty_code(FILE *fd, monty_data *data)
 	size_t len = 0, exit_status = EXIT_SUCCESS;
 	unsigned int line_number = 0;
 	stack_t *stack = NULL;
-	int i = 0;
+	int i = 0, last = 0;
 
 	while (getline(&line, &len, fd) != -1)
 	{
@@ -38,11 +38,14 @@ int monty_code(FILE *fd, monty_data *data)
 				free(data->line);
 				break;
 			}
+			last = 1;
 		}
 		free_tokens(data);
 	}
 	free(line);
 	free_dlistint(stack);
+	if (last)
+		printf("0\n");
 	return (exit_status);
 }
 
