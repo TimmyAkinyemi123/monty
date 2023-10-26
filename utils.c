@@ -13,7 +13,6 @@ void init_data(monty_data *data)
 	data->topback = 1;
 }
 
-
 /**
  * is_opcode - checks if string is an opcode
  * @stack: double pointer to stack
